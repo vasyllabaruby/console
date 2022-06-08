@@ -1,0 +1,19 @@
+GIT
+  remote: https://github.com/vasyllabaruby/codebreaker.git
+  revision: 756f68ae0696ec823238615299070b448d8b10be
+  branch: develop
+  specs:
+    codebreaker (1.4.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  codebreaker!
+
+BUNDLED WITH
+   2.3.15
