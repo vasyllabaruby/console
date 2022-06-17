@@ -48,27 +48,24 @@ class ConsoleViewer
     hint if step == 'hint'
     exit if step == 'exit'
     result(step)
-    if @game.attempts.positive?
-      lets_play
-    else
-      you_loose
-    end
+    lets_play
   end
 
   def result(step)
     result = @game.play(step)
     unexpected_command_message if result.nil?
-    you_win if result == '++++ (win)'
+    you_win(result) if result == '++++'
+    you_loose(result) if result =~ /^[1-6]{4}$/
     puts result
   end
 
-  def you_win
-    puts "++++ (win)\n\n\t\t Congratulation!!!\none mote time?\n"
+  def you_win(result)
+    puts "++++ (win)\n\n\t\t Congratulation!!!\nresult is #{result} one mote time?\n"
     menu
   end
 
-  def you_loose
-    puts "you loose\n\tone mote time?\n"
+  def you_loose(result)
+    puts "you loose\n\tone mote time?\n result is #{result}"
     menu
   end
 
