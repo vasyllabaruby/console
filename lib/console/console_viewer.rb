@@ -2,13 +2,12 @@ require 'codebreaker/game'
 require_relative 'show_stats'
 
 class ConsoleViewer
-  include(ShowStats)
-  include(Codebreaker)
   attr_reader :game, :stats_arr
+  RULES = 'Rules.txt'
 
   def initialize
     @stats_arr = []
-    @game = Game.new
+    @game = Codebreaker::Game.new
   end
 
   def welcome
@@ -29,7 +28,7 @@ class ConsoleViewer
   end
 
   def rules
-    file = File.open('Rules.txt')
+    file = File.open(RULES)
     puts file.read
     file.close
     menu
@@ -107,7 +106,7 @@ class ConsoleViewer
   end
 
   def stats
-    ::ShowStats.show_stats(@game)
+    ShowStats.show_stats(@game)
     menu
   end
 end
