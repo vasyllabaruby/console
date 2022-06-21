@@ -1,5 +1,5 @@
 require 'codebreaker/game'
-require_relative 'show_stats'
+require_relative 'stats'
 
 module Console
   class ConsoleViewer
@@ -107,7 +107,7 @@ module Console
     end
 
     def stats
-      ShowStats.show_stats(@game)
+      Stats.show_stats(@game)
       menu
     end
   end

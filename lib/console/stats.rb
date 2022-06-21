@@ -1,6 +1,6 @@
 require 'codebreaker/game'
 module Console
-  module ShowStats
+  module Stats
     def self.show_stats(game)
       if game.statistic.empty?
         puts 'no stats data'
