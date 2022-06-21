@@ -87,7 +87,7 @@ class ConsoleViewer
     name = gets.chomp
     return if name.equal?('exit')
 
-    not_valid_name unless Codebreaker::ValidateService.name_valid?(name)
+    not_valid_name unless @game.name_input(name)
     name
   end
 
