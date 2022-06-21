@@ -89,7 +89,7 @@ module Console
       name = gets.chomp
       return if name.equal?('exit')
 
-      not_valid_name unless @game.name_input(name)
+      not_valid_name unless @game.name_check(name)
       name
     end
 
@@ -100,10 +100,13 @@ module Console
 
     def choose_difficulty
       puts "Please choose difficulty:\n\tEasy\n\tMedium\n\tHell"
-      diff = gets.chomp.downcase.to_sym
-      diff_values = %i[easy medium hell]
-      return diff if diff_values.include?(diff)
+      difficulty = gets.chomp.to_sym.downcase
+      return not_valid_difficulty unless @game.difficulty_check(difficulty)
+      difficulty
+    end
 
+    def not_valid_difficulty
+      puts 'difficulty not valid, must easy medium or hell'
       choose_difficulty
     end
 
