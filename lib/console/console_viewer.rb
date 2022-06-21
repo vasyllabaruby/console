@@ -45,9 +45,12 @@ module Console
 
     def lets_play
       step = gets.chomp.to_s
-      hint if step == 'hint'
-      exit if step == 'exit'
-      result(step)
+      case step
+      when 'hint' then hint
+      when 'exit' then exit
+      else
+        result(step)
+      end
       lets_play
     end
 
@@ -71,7 +74,6 @@ module Console
 
     def hint
       puts @game.hint
-      lets_play
     end
 
     def exit
@@ -80,7 +82,6 @@ module Console
 
     def unexpected_command_message
       puts 'Invalid values Please input: hint, exit or code'
-      lets_play
     end
 
     def input_name
