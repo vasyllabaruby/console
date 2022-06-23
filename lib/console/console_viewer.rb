@@ -20,19 +20,19 @@ module Console
       puts "Please input command: \n\tstart\n\trules\n\tstats\n\texit"
       command = gets.chomp
       case command
-      when 'start' then paly
+      when 'start' then play
       when 'rules' then rules
       when 'stats' then stats
       when 'exit' then exit
       else puts 'You have passed unexpected command. Please choose one from listed commands', menu
       end
+      menu
     end
 
     def rules
       file = File.open(RULES)
       puts file.read
       file.close
-      menu
     end
 
     def play
@@ -63,13 +63,16 @@ module Console
     end
 
     def you_win(result)
-      puts "++++ (win)\n\n\t\t Congratulation!!!\nresult is #{result} one mote time?\n"
-      menu
+      puts "++++ (win)\n\n\t\t Congratulation!!!\nSecret code  #{result} one mote time?\n"
     end
 
     def you_loose(result)
-      puts "you loose\n\tone mote time?\n result is #{result}"
-      menu
+      puts "You loose. The secret code was #{result}.\nOne more time? Y/n"
+      input = gets.chomp.to_s.downcase
+      case input
+      when 'y' then play
+      else menu
+      end
     end
 
     def hint
@@ -112,7 +115,6 @@ module Console
 
     def stats
       Stats.show_stats(@game)
-      menu
     end
   end
 end
