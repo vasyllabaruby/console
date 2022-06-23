@@ -20,7 +20,7 @@ module Console
       puts "Please input command: \n\tstart\n\trules\n\tstats\n\texit"
       command = gets.chomp
       case command
-      when 'start' then game_registration
+      when 'start' then paly
       when 'rules' then rules
       when 'stats' then stats
       when 'exit' then exit
@@ -35,15 +35,15 @@ module Console
       menu
     end
 
-    def game_registration
+    def play
       @game.new_game(input_name, choose_difficulty)
       puts "\n\t\tGame started   !!!!"
-      lets_play
+      make_step
     end
 
     private
 
-    def lets_play
+    def make_step
       step = gets.chomp.to_s
       case step
       when 'hint' then hint
@@ -51,7 +51,7 @@ module Console
       else
         result(step)
       end
-      lets_play
+      make_step
     end
 
     def result(step)
