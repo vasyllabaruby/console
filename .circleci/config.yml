@@ -13,7 +13,7 @@ commands:
   run_specs:
     steps:
       - run:
-          name: run specs
+          name: run_specs
           command: rspec
   run_linters:
     steps:
@@ -33,7 +33,6 @@ jobs:
   run_specs:
     executor: default
     steps:
-      - defaults
       - run_specs
 
 workflows:
