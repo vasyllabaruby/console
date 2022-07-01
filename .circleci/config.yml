@@ -20,9 +20,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: install system deps
-          command: script/ci-install-deps.sh
-      - run:
           name: bundle install
           command: bundle check || bundle install --without=development
       - run:
