@@ -10,7 +10,7 @@ commands:
     steps:
       - checkout
       - run: bundle install
-  run_spec:
+  run_specs:
     steps:
       - run:
           name: run specs
@@ -38,7 +38,7 @@ jobs:
     executor: default
     steps:
       - defaults
-      - run_spec
+      - run_specs
 
 workflows:
   build:
