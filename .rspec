@@ -1,2 +1,1 @@
---format RspecJunitFormatter
---out rspec.xml
+--require spec_helper

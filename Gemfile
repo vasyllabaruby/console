@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in console.gemspec
 gem 'codebreaker', git: 'https://github.com/vasyllabaruby/codebreaker.git', branch: 'develop'
 gem 'fasterer'
+gem 'i18n'
 gem 'rake'
 gem 'rubocop'
 gem 'simplecov'
