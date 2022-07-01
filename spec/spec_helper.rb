@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
+require 'stringio'
 require 'simplecov'
 SimpleCov.start
+SimpleCov.minimum_coverage 90
 
 require_relative '../autoload'
 
