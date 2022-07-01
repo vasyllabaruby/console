@@ -6,7 +6,10 @@ source 'https://rubygems.org'
 gem 'codebreaker', git: 'https://github.com/vasyllabaruby/codebreaker.git', branch: 'develop'
 gem 'fasterer'
 gem 'rake'
-gem 'rspec'
-gem 'rspec_junit_formatter'
 gem 'rubocop'
 gem 'simplecov'
+
+group :test do
+  gem "rspec"
+  gem "rspec_junit_formatter"
+end
