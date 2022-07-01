@@ -14,7 +14,7 @@ commands:
     steps:
       - run:
           name: rubocop
-          command: bundle exec rubocop
+          command: rubocop
   run_specs:
     steps:
       - run:
