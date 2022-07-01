@@ -1,4 +1,4 @@
-version: 3.1
+version: 2.1
 
 executors:
   default:
@@ -6,8 +6,7 @@ executors:
     description: The official CircleCI Ruby Docker image
     docker:
       - image: cimg/ruby:3.1.2
-caches:
-  - &bundle_cache v1-repo-{{ checksum "Gemfile.lock" }}
+
 commands:
   run_linters:
     description: command to start linters
