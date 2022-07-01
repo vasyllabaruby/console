@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'console/console_viewer'
+require 'console/console_viewer'
 
 RSpec.describe Console::ConsoleViewer do
   let(:console_viewer) { Console::ConsoleViewer.new }
