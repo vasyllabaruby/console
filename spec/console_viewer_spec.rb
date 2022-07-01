@@ -53,14 +53,25 @@ Please input command: \n\tstart\n\trules\n\tstats\n\texit\nGoodbye
 ").to_stdout
     end
 
-    it ' gets status' do
+    it ' gets stats' do
+      player1 = Codebreaker::Player.new('Tester')
+      player1.difficulty = ('hell')
+      player1.attempts_total = 5
+      player1.hints_total = 1
+      player1.instance_variable_set(:@attempts_used, 3)
+      player1.instance_variable_set(:@hints_used, 0)
+      player2 = Codebreaker::Player.new('Naruto')
+      player2.difficulty = ('easy')
+      player2.attempts_total = 15
+      player2.hints_total = 2
+      player2.instance_variable_set(:@attempts_used, 8)
+      player2.instance_variable_set(:@hints_used, 1)
+      console_viewer.game.instance_variable_set(:@statistic, [player1, player2])
       allow(console_viewer).to receive_message_chain(:gets, :chomp).and_return('stats', 'exit')
       expect { console_viewer.send(:menu) }.to output("Please input command: \n\tstart\n\trules\n\tstats\n\texit
 Rating   Name     Difficulty      Attempts Total  Attempts Used   Hints Total     Hints Used
-1        Vasyl    hell            5               5               1               0
-2        Tester   hell            5               5               1               1
-3        Naruto   hell            5               4               1               0
-4        Hatiko   hell            5               4               1               0
+1        Tester   hell            5               3               1               0
+2        Naruto   easy            15              8               2               1
 Please input command: \n\tstart\n\trules\n\tstats\n\texit\nGoodbye
 ").to_stdout
     end
