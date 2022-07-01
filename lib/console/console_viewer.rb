@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'codebreaker/game'
 require_relative 'stats'
 
 module Console

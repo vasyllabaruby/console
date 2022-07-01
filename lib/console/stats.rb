@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'codebreaker/game'
 module Console
   # Module to print stats
   module Stats
