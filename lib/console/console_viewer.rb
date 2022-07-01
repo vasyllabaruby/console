@@ -1,9 +1,13 @@
+# frozen_string_literal: true
+
 require 'codebreaker/game'
 require_relative 'stats'
 
 module Console
+  # Console class to play codebreaker game
   class ConsoleViewer
     attr_reader :game, :stats_arr
+
     RULES = 'Rules.txt'
 
     def initialize
@@ -25,7 +29,7 @@ module Console
       when 'rules' then rules
       when 'stats' then stats
       when 'exit'
-        puts "Goodbye"
+        puts 'Goodbye'
         return
       else invalid_command
       end
@@ -69,7 +73,7 @@ module Console
       puts result
     end
 
-    def you_win(result)
+    def you_win(_result)
       puts "++++ (win)\n\n\t\t Congratulation!!!\nYou win!!! one mote time?\n"
     end
 
@@ -108,6 +112,7 @@ module Console
       puts "Please choose difficulty:\n\tEasy\n\tMedium\n\tHell"
       difficulty = gets.chomp.to_sym.downcase
       return not_valid_difficulty unless @game.difficulty_check(difficulty)
+
       difficulty
     end
 
