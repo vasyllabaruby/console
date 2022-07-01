@@ -21,7 +21,7 @@ jobs:
       - checkout
       - run:
           name: bundle install
-          command: bundle check || bundle install --without=development
+          command: bundle install
       - run:
           name: npm install
           command: npm install
