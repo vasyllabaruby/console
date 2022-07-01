@@ -31,7 +31,7 @@ commands:
   setup_environment:
     steps:
       - checkout
-      - run: bundle install --path vendor/bundle
+      - run: bundle install
 jobs:
   lintering:
     executor: default
