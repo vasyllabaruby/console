@@ -3,7 +3,7 @@
 require 'simplecov'
 SimpleCov.start
 
-require_relative '../autoload.rb'
+require_relative '../autoload'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
