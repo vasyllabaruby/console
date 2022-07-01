@@ -1,45 +1,56 @@
-version: 3.1.0
-jobs:
-  test:
-    parallelism: 12
-    # Call bash as interactive login shell to make sure nvm is loaded through .bashrc
-    shell: /bin/bash -ileo pipefail
-    resource_class: small
+version: 2.1
+
+executors:
+  default:
+    working_directory: ~/repo
     docker:
-      - image: cimg/ruby:3.1.0-browsers
+      - image: cimg/ruby:3.1.2
         environment:
-          RACK_ENV: test
-          BUNDLE_PATH: vendor/bundle
-          BUNDLE_JOBS: 4
-          BUNDLE_RETRY: 3
-          RUBYOPT: "-W0"
+          BUNDLER_VERSION: 2.0.1
+          parallelism: 3
+
+commands:
+  defaults:
     steps:
       - checkout
+      - run: bundle install
+  run_specs:
+    steps:
       - run:
-          name: bundle install
-          command: bundle install
+          name: run specs
+          command: |
+            mkdir /tmp/test-results
+            bundle exec rspec --format progress \
+                              --out /tmp/test-results/rspec.xml \
+                              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+      - store_test_results:
+          path: test-results
+  run_linters:
+    steps:
       - run:
           name: rubocop
-          command: if [[ "$CIRCLE_NODE_INDEX" == "0" ]] ; then bundle exec rubocop ; fi
+          command: rubocop
       - run:
-          name: npm lint
-          command: if [[ "$CIRCLE_NODE_INDEX" == "1" || "$CIRCLE_NODE_TOTAL" == "1" ]] ; then npm run lint ; fi
-          working_directory: client
-      - run:
-          name: rspec tests to run
-          command: shopt -s globstar && echo $(circleci tests glob spec/**/*_spec.rb | circleci tests split --split-by=timings)
-      - run:
-          name: rspec
-          command: shopt -s globstar && mkdir -p $CIRCLE_TEST_REPORTS/rspec && bundle exec rspec --format progress --format RspecJunitFormatter --out $CIRCLE_TEST_REPORTS/rspec/rspec.xml $(circleci tests glob spec/**/*_spec.rb | circleci tests split --split-by=timings --show-counts)
-      - store_test_results:
-          path: /tmp/circleci-test-results
-      - store_artifacts:
-          path: /tmp/circleci-test-results
-      - store_artifacts:
-          path: ~/project/tmp/capybara
-          destination: test-screenshots
+          name: fasterer
+          command: fasterer
+
+jobs:
+  linters:
+    executor: default
+    steps:
+      - defaults
+      - run_linters
+  run_specs:
+    executor: default
+    steps:
+      - defaults
+      - run_specs
+
 workflows:
-  version: 2
-  test:
+  build:
     jobs:
-      - test
+      - linters
+      - run_specs:
+          requires:
+            - linters
+
