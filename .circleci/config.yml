@@ -3,54 +3,58 @@ version: 2.1
 executors:
   default:
     working_directory: ~/repo
+    description: The official CircleCI Ruby Docker image
     docker:
-      - image: cimg/ruby:3.1.2
-        environment:
-          BUNDLER_VERSION: 2.0.1
-          parallelism: 3
-
+      - image: circleci/ruby:2.7.1
+caches:
+  - &bundle_cache v1-repo-{{ checksum "Gemfile.lock" }}
 commands:
-  defaults:
+  run_linters:
+    description: command to start linters
     steps:
-      - checkout
-      - run: bundle install
+      - run:
+          name: rubocop
+          command: bundle exec rubocop
   run_specs:
     steps:
       - run:
           name: run specs
           command: |
             mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb")"
             bundle exec rspec --format progress \
                               --out /tmp/test-results/rspec.xml \
-                              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
-      - store_test_results:
-          path: test-results
-  run_linters:
+                              $TEST_FILES
+      - store_artifacts:
+          path: ~/repo/coverage
+          destination: coverage
+  setup_environment:
     steps:
-      - run:
-          name: rubocop
-          command: rubocop
-      - run:
-          name: fasterer
-          command: fasterer
-
+      - checkout
+      - restore_cache:
+          key: *bundle_cache
+      - run: bundle install --path vendor/bundle
+      - save_cache:
+          key: *bundle_cache
+          paths:
+            - vendor/bundle
 jobs:
-  linters:
+  lintering:
     executor: default
     steps:
-      - defaults
+      - setup_environment
       - run_linters
   run_specs:
     executor: default
     steps:
-      - defaults
+      - setup_environment
       - run_specs
 
 workflows:
+  version: 2
   build:
     jobs:
-      - linters
+      - lintering
       - run_specs:
           requires:
-            - linters
-
+            - lintering
