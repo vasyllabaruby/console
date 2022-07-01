@@ -9,6 +9,7 @@ module Console
     def initialize
       @stats_arr = []
       @game = Codebreaker::Game.new
+      @end_game = false
     end
 
     def welcome
@@ -23,10 +24,16 @@ module Console
       when 'start' then play
       when 'rules' then rules
       when 'stats' then stats
-      when 'exit' then exit
-      else puts 'You have passed unexpected command. Please choose one from listed commands', menu
+      when 'exit'
+        puts "Goodbye"
+        return
+      else invalid_command
       end
       menu
+    end
+
+    def invalid_command
+      puts 'You have passed unexpected command. Please choose one from listed commands'
     end
 
     def rules
@@ -47,7 +54,7 @@ module Console
       step = gets.chomp.to_s
       case step
       when 'hint' then hint
-      when 'exit' then exit
+      when 'exit' then return 'exit'
       else
         result(step)
       end
@@ -63,7 +70,7 @@ module Console
     end
 
     def you_win(result)
-      puts "++++ (win)\n\n\t\t Congratulation!!!\nSecret code  #{result} one mote time?\n"
+      puts "++++ (win)\n\n\t\t Congratulation!!!\nYou win!!! one mote time?\n"
     end
 
     def you_loose(result)
@@ -77,10 +84,6 @@ module Console
 
     def hint
       puts @game.hint
-    end
-
-    def exit
-      abort 'Goodbye'
     end
 
     def unexpected_command_message
