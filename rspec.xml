@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="19" skipped="0" failures="0" errors="0" time="0.034197" timestamp="2022-07-01T19:03:28+03:00" hostname="vasillaba-comp">
+<testsuite name="rspec" tests="19" skipped="0" failures="0" errors="0" time="0.036577" timestamp="2022-07-01T20:10:28+03:00" hostname="vasillaba-comp">
 <properties>
-<property name="seed" value="57315"/>
+<property name="seed" value="58529"/>
 </properties>
-<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#welcome welcome method print as expected" file="./spec/console_viewer_spec.rb" time="0.005855"></testcase>
-<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#menu gets start" file="./spec/console_viewer_spec.rb" time="0.001525"></testcase>
-<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#menu  gets rules" file="./spec/console_viewer_spec.rb" time="0.001230"></testcase>
-<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#menu  gets stats" file="./spec/console_viewer_spec.rb" time="0.001349"></testcase>
-<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#menu  gets exit" file="./spec/console_viewer_spec.rb" time="0.001117"></testcase>
-<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#menu gets invalid command" file="./spec/console_viewer_spec.rb" time="0.001136"></testcase>
-<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#input_name print as expected" file="./spec/console_viewer_spec.rb" time="0.001182"></testcase>
-<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#not_valid_name print as expected" file="./spec/console_viewer_spec.rb" time="0.001103"></testcase>
-<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#choose_difficulty print as expected" file="./spec/console_viewer_spec.rb" time="0.001087"></testcase>
-<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#not_valid_difficulty print as expected" file="./spec/console_viewer_spec.rb" time="0.000981"></testcase>
-<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#stats print as expected when no data" file="./spec/console_viewer_spec.rb" time="0.000740"></testcase>
-<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#unexpected_command_message print as expected" file="./spec/console_viewer_spec.rb" time="0.000735"></testcase>
-<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#hint print as expected" file="./spec/console_viewer_spec.rb" time="0.000739"></testcase>
-<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#you_win print as expected" file="./spec/console_viewer_spec.rb" time="0.000715"></testcase>
-<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#you_loose print as expected gets n" file="./spec/console_viewer_spec.rb" time="0.001289"></testcase>
-<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#you_loose print as expected gets Y" file="./spec/console_viewer_spec.rb" time="0.001203"></testcase>
-<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#result print as expected if win" file="./spec/console_viewer_spec.rb" time="0.005146"></testcase>
-<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#result print as expected if loose" file="./spec/console_viewer_spec.rb" time="0.001642"></testcase>
-<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#play print as expected" file="./spec/console_viewer_spec.rb" time="0.001264"></testcase>
+<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#welcome welcome method print as expected" file="./spec/console_viewer_spec.rb" time="0.005930"></testcase>
+<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#menu gets start" file="./spec/console_viewer_spec.rb" time="0.001698"></testcase>
+<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#menu  gets rules" file="./spec/console_viewer_spec.rb" time="0.005483"></testcase>
+<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#menu  gets stats" file="./spec/console_viewer_spec.rb" time="0.001360"></testcase>
+<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#menu  gets exit" file="./spec/console_viewer_spec.rb" time="0.001222"></testcase>
+<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#menu gets invalid command" file="./spec/console_viewer_spec.rb" time="0.001488"></testcase>
+<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#input_name print as expected" file="./spec/console_viewer_spec.rb" time="0.001335"></testcase>
+<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#not_valid_name print as expected" file="./spec/console_viewer_spec.rb" time="0.001046"></testcase>
+<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#choose_difficulty print as expected" file="./spec/console_viewer_spec.rb" time="0.001402"></testcase>
+<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#not_valid_difficulty print as expected" file="./spec/console_viewer_spec.rb" time="0.001170"></testcase>
+<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#stats print as expected when no data" file="./spec/console_viewer_spec.rb" time="0.000754"></testcase>
+<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#unexpected_command_message print as expected" file="./spec/console_viewer_spec.rb" time="0.000714"></testcase>
+<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#hint print as expected" file="./spec/console_viewer_spec.rb" time="0.001047"></testcase>
+<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#you_win print as expected" file="./spec/console_viewer_spec.rb" time="0.001065"></testcase>
+<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#you_loose print as expected gets n" file="./spec/console_viewer_spec.rb" time="0.001276"></testcase>
+<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#you_loose print as expected gets Y" file="./spec/console_viewer_spec.rb" time="0.001382"></testcase>
+<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#result print as expected if win" file="./spec/console_viewer_spec.rb" time="0.001019"></testcase>
+<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#result print as expected if loose" file="./spec/console_viewer_spec.rb" time="0.001226"></testcase>
+<testcase classname="spec.console_viewer_spec" name="Console::ConsoleViewer#play print as expected" file="./spec/console_viewer_spec.rb" time="0.001136"></testcase>
 </testsuite>
