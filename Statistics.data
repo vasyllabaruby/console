@@ -1,0 +1,29 @@
+---
+- !ruby/object:Codebreaker::Player
+  name: Vasyl
+  attempts_total: 5
+  hints_total: 1
+  difficulty: :hell
+  attempts_used: 5
+  hints_used: 0
+- !ruby/object:Codebreaker::Player
+  name: Tester
+  attempts_total: 5
+  hints_total: 1
+  difficulty: :hell
+  attempts_used: 5
+  hints_used: 1
+- !ruby/object:Codebreaker::Player
+  name: Naruto
+  attempts_total: 5
+  hints_total: 1
+  difficulty: :hell
+  attempts_used: 4
+  hints_used: 0
+- !ruby/object:Codebreaker::Player
+  name: Hatiko
+  attempts_total: 5
+  hints_total: 1
+  difficulty: :hell
+  attempts_used: 4
+  hints_used: 0
