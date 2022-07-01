@@ -10,11 +10,10 @@ commands:
     steps:
       - checkout
       - run: bundle install
-  run_specs:
+  run_spec:
     steps:
       - run:
-          name: run_specs
-          mkdir: /tmp/test-results
+          name: run specs
           command: bundle exec rspec --format progress \
             --out /tmp/test-results/rspec.xml \
             $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
@@ -37,7 +36,7 @@ jobs:
     executor: default
     steps:
       - defaults
-      - run_specs
+      - run_spec
 
 workflows:
   build:
