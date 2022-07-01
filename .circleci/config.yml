@@ -14,8 +14,8 @@ commands:
     steps:
       - run:
           name: run_specs
-          command: mkdir /tmp/test-results
-            bundle exec rspec --format progress \
+          mkdir: /tmp/test-results
+          command: bundle exec rspec --format progress \
             --out /tmp/test-results/rspec.xml \
             $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
   run_linters:
