@@ -37,6 +37,7 @@ jobs:
   run_specs:
     executor: default
     steps:
+      - defaults
       - run_specs
 
 workflows:
