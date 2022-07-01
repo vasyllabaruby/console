@@ -2,15 +2,12 @@
 
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in console.gemspec
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
+
 gem 'codebreaker', git: 'https://github.com/vasyllabaruby/codebreaker.git', branch: 'develop'
 gem 'fasterer'
 gem 'i18n'
-gem 'rake'
+gem 'rspec'
+gem 'rspec_junit_formatter'
 gem 'rubocop'
 gem 'simplecov'
-
-group :test do
-  gem 'rspec'
-  gem 'rspec_junit_formatter'
-end
