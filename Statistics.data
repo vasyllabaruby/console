@@ -27,3 +27,10 @@
   difficulty: :hell
   attempts_used: 4
   hints_used: 0
+- !ruby/object:Codebreaker::Player
+  name: Vasyl
+  attempts_total: 15
+  hints_total: 2
+  difficulty: :easy
+  attempts_used: 14
+  hints_used: 0
