@@ -6,7 +6,7 @@ executors:
     docker:
       - image: cimg/ruby:3.1.2
 caches:
-  - &bundle_cache -repo-{{ checksum "Gemfile.lock" }}
+  - &bundle_cache -repo
 commands:
   defaults:
     steps:
@@ -24,9 +24,9 @@ commands:
       - run:
           name: rubocop
           command: bundle exec rubocop
-#      - run:
-#          name: fasterer
-#          command: bundle exec fasterer
+      - run:
+          name: fasterer
+          command: bundle exec fasterer
   run_specs:
     steps:
       - run:
