@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'simplecov'
 SimpleCov.start do
   minimum_coverage 95
@@ -6,6 +8,5 @@ SimpleCov.start do
 end
 
 require 'bundler/setup'
-require 'codebraker'
-
-require_relative 'autoload.rb'
+require 'codebreaker/game'
+require 'lib/console/console_viewer'
