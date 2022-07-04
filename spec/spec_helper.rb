@@ -9,4 +9,4 @@ end
 
 require 'bundler/setup'
 require 'codebreaker/game'
-require 'lib/console/console_viewer'
+require_relative '../lib/console/console_viewer'
