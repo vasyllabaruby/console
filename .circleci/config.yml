@@ -24,9 +24,9 @@ commands:
       - run:
           name: rubocop
           command: bundle exec rubocop
-      - run:
-          name: fasterer
-          command: bundle exec fasterer
+#      - run:
+#          name: fasterer
+#          command: bundle exec fasterer
   run_specs:
     steps:
       - run:
@@ -49,6 +49,7 @@ jobs:
       - run_specs
 
 workflows:
+  version: 2
   build:
     jobs:
       - linters
