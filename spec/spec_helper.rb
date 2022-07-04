@@ -5,7 +5,7 @@ require 'simplecov'
 SimpleCov.start
 SimpleCov.minimum_coverage 90
 
-require '../autoload'
+require 'codebreaker/game'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
