@@ -1,7 +1,6 @@
 GIT
   remote: https://github.com/vasyllabaruby/codebreaker.git
-  revision: dcf8ae4cbd0d0c2e55084ba8a6efa53ffe0ec28a
-  branch: develop
+  revision: f85a2f77b5404566bc50bd8f731c7888793d37eb
   specs:
     codebreaker (2.2.5)
 
@@ -23,7 +22,6 @@ GEM
     parser (3.1.2.0)
       ast (~> 2.4.1)
     rainbow (3.1.1)
-    rake (13.0.6)
     regexp_parser (2.5.0)
     rexml (3.2.5)
     rspec (3.11.0)
@@ -72,7 +70,6 @@ DEPENDENCIES
   codebreaker!
   fasterer
   i18n
-  rake
   rspec
   rspec_junit_formatter
   rubocop
