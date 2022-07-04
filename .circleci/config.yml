@@ -5,7 +5,20 @@ executors:
     working_directory: ~/repo
     docker:
       - image: cimg/ruby:3.1.2
+caches:
+  - &bundle_cache -repo-{{ checksum "Gemfile.lock" }}
 commands:
+  defaults:
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - *bundle_cache
+      - run: bundle install --path vendor/bundle
+      - save_cache:
+          key: *bundle_cache
+          paths:
+            - vendor/bundle
   run_linters:
     steps:
       - run:
@@ -13,7 +26,7 @@ commands:
           command: bundle exec rubocop
       - run:
           name: fasterer
-          command: fasterer
+          command: bundle exec fasterer
   run_specs:
     steps:
       - run:
@@ -23,20 +36,16 @@ commands:
             bundle exec rspec --format progress \
                               --out /tmp/test-results/rspec.xml \
                               $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
-  setup_environment:
-    steps:
-      - checkout
-      - run: bundle install --path vendor/bundle
 jobs:
   linters:
     executor: default
     steps:
-      - setup_environment
+      - defaults
       - run_linters
   run_specs:
     executor: default
     steps:
-      - setup_environment
+      - defaults
       - run_specs
 
 workflows:
