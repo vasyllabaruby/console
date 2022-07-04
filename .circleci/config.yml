@@ -42,7 +42,7 @@ jobs:
     steps:
       - defaults
       - run_linters
-  run_specs:
+  specs:
     executor: default
     steps:
       - defaults
@@ -53,6 +53,6 @@ workflows:
   build:
     jobs:
       - linters
-      - run_specs:
+      - specs:
           requires:
             - linters
