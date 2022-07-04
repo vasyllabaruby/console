@@ -31,9 +31,7 @@ commands:
     steps:
       - run:
           name: run specs
-          command: |
-            mkdir /tmp/test-results
-            bundle exec rspec
+          command: bundle exec rspec
 jobs:
   linters:
     executor: default
