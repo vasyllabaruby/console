@@ -2,10 +2,11 @@
 
 require 'stringio'
 require 'simplecov'
+require 'codebreaker/game'
 SimpleCov.start
 SimpleCov.minimum_coverage 90
 
-require 'codebreaker/game'
+require 'lib/console/console_viewer'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
